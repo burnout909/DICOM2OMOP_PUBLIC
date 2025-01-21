@@ -28,11 +28,11 @@ def json_to_pandas_dataframe(json_file_path):
         return pd.DataFrame()
 
 # Directory containing JSON files
-directory = './sourceandrenderingpipeline/valuesets/valuesets/fhir/json/'
+directory = '../sourceandrenderingpipeline/valuesets/valuesets/fhir/json/'
 
 # List all JSON files in the directory
 json_files = [os.path.join(directory, file) for file in os.listdir(directory) if file.endswith('.json')]
-
+print(json_files)
 # Process each file and combine into a single DataFrame
 df_combined = pd.DataFrame()
 for file in json_files:
@@ -40,6 +40,6 @@ for file in json_files:
     df_combined = pd.concat([df_combined, df], ignore_index=True)
 
 # Save the combined DataFrame as CSV and Parquet
-df_combined.to_csv('./files/DICOM Standard/fhir_valuesets.csv', index=False)
+df_combined.to_csv('../files/DICOM Standard/fhir_valuesets.csv', index=False)
 
 print("Files saved: fhir_valuesets.csv")
