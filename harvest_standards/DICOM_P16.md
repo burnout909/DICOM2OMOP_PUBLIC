@@ -3,6 +3,7 @@
 ### Requirements
 
 Developed and Tested for:
+
 - WSL Ubuntu 22.04.3 LTS (Jammy Jellyfish)
 - openjdk version "11.0.21" 2023-10-17
 - Python 3.10.12
@@ -13,7 +14,9 @@ Developed and Tested for:
 sudo apt update && sudo apt upgrade
 sudo apt install bzip2 default-jdk default-jre xsltproc libxml2-utils python3-pip python3.10-venv
 ```
+
 For macOS, use Homebrew package management system
+
 ```bash
 brew update
 brew upgrade # if needed
@@ -24,18 +27,24 @@ Verify java installation
 ```bash
 java -version
 ```
+
 > openjdk version "11.0.21" 2023-10-17
 
 The macOS has its legacy Java, and it is possible that your macOS is not using openjdk. You can install it and read the output for next steps (e.g., setting symlink and path)
+
 ```bash
 brew install openjdk
 brew info openjdk
 ```
+
 Symlink
+
 ```bash
-sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+
 ```
+
 Set path
+
 ```bash
 echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.zshrc
 ```
@@ -43,13 +52,13 @@ echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.zshrc
 ### 1. Download the current source and rendering pipeline from dicom.nema.org using curl (wget or another method will also work)
 
 ```bash
-curl https://dicom.nema.org/medical/dicom/current/DocBookDICOM2024a_sourceandrenderingpipeline_20240120075929.tar.bz2 --output sourceandrenderingpipeline.tar.bz2
+curl https://dicom.nema.org/medical/dicom/current/DocBookDICOM2024e_sourceandrenderingpipeline_20241115102423.tar.bz2 --output sourceandrenderingpipeline.tar.bz2
 ```
 
 ### 2. Extract to a directory, remove archive, and navigate to the directory
 
 ```bash
-mkdir sourceandrenderingpipeline 
+mkdir sourceandrenderingpipeline
 
 tar -xvf sourceandrenderingpipeline.tar.bz2 -C sourceandrenderingpipeline
 
@@ -65,6 +74,7 @@ cd sourceandrenderingpipeline
 ```
 
 If you get an error message that gsed: command not found, then install gsed package first and run it again.
+
 ```bash
 brew install gnu-sed
 ```
@@ -74,6 +84,7 @@ brew install gnu-sed
 ```bash
 ./generateolinkdb.sh 16
 ```
+
 ### 5. Generate FHIR valuesets
 
 #### 5.1 Navigate to the valuesets subdirectory and download Java package dependencies
@@ -93,6 +104,7 @@ sed -i 's|${HOME}/work/pixelmed/imgbook/lib/additional/|./|g' extractvaluesets.s
 ```
 
 For macOS, `-i` syntax needs explicit argument specifying the extension for backup files.
+
 ```bash
 cp extractvaluesets.sh{,.old}
 sed -i.bak 's|${HOME}/work/pixelmed/imgbook/lib/additional/|./|g' extractvaluesets.sh
@@ -104,7 +116,8 @@ sed -i.bak 's|${HOME}/work/pixelmed/imgbook/lib/additional/|./|g' extractvaluese
 ```bash
 find ./valuesets/fhir/json/ -type f -name "*.json" | wc -l
 ```
->1341
+
+> 1341
 
 ### 6. Setup the Python virtual environment
 
@@ -117,6 +130,10 @@ cd ../..
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
+
+```run DICOM_P16_harvest_json.ipynb
+
 ```
 
 ```bash

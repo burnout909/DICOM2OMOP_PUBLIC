@@ -1,17 +1,13 @@
 code,description
-HFP,Head First-Prone
-HFS,Head First-Supine
-HFDR,Head First-Decubitus Right
-HFDL,Head First-Decubitus Left
-FFDR,Feet First-Decubitus Right
-FFDL,Feet First-Decubitus Left
-FFP,Feet First-Prone
-FFS,Feet First-Supine
-LFP,Left First-Prone
-LFS,Left First-Supine
-RFP,Right First-Prone
-RFS,Right First-Supine
-AFDR,Anterior First-Decubitus Right
-AFDL,Anterior First-Decubitus Left
-PFDR,Posterior First-Decubitus Right
-PFDL,Posterior First-Decubitus Left
+HF,"Head First is defined as the patient's head being positioned toward the front of the imaging equipment (i.e., head entering the front of the equipment)."
+FF,"Feet First is defined as the patient's feet being positioned toward the front of the imaging equipment (i.e., feet entering the front of the equipment)."
+LF,"Left First is defined as the patient's left side being positioned towards the front of the imaging equipment (i.e., patient's left side entering the front of the equipment)."
+RF,"Right First is defined as the patient's right being positioned towards the front of the imaging equipment (i.e., patient's right side entering the front of the equipment)."
+AF,"Anterior First is defined as the patient's anterior being positioned towards the front of the imaging equipment (i.e., patient's anterior side entering the front of the equipment)."
+PF,"Posterior First is defined as the patient's posterior being positioned towards the front of the imaging equipment (i.e., patient's posterior side entering the front of the equipment)."
+P,Prone is defined as the patient's face being positioned in a downward (gravity) direction.
+S,Supine is defined as the patient's face being in an upward direction.
+DR,Decubitus Right is defined as the patient's right side being in a downward direction.
+DL,Decubitus Left is defined as the patient's left side being in a downward direction.
+V,Vertical is defined as the patient's feet being positioned in a downward (gravity) direction.
+I,Inverted is defined as the patient's head being positioned in a downward (gravity) direction.
